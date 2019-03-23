@@ -20,4 +20,6 @@ public class Pet911WebsiteContext : DbContext
     public System.Data.Entity.DbSet<Pet911Website.Models.AnimalKind> AnimalKinds { get; set; }
 
     public System.Data.Entity.DbSet<Pet911Website.Models.Client> Clients { get; set; }
+
+    public System.Data.Entity.DbSet<Pet911Website.Models.Staff> Staffs { get; set; }
 }
