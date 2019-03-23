@@ -24,4 +24,6 @@ public class Pet911WebsiteContext : DbContext
     public System.Data.Entity.DbSet<Pet911Website.Models.Staff> Staffs { get; set; }
 
     public System.Data.Entity.DbSet<Pet911Website.Models.Pet> Pets { get; set; }
+
+    public System.Data.Entity.DbSet<Pet911Website.Models.Breed> Breeds { get; set; }
 }

@@ -133,6 +133,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AnimalKindsController.cs" />
+    <Compile Include="Controllers\BreedsController.cs" />
     <Compile Include="Controllers\ClientsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PetsController.cs" />
@@ -224,6 +225,11 @@
     <Content Include="Views\Pets\Details.cshtml" />
     <Content Include="Views\Pets\Edit.cshtml" />
     <Content Include="Views\Pets\Index.cshtml" />
+    <Content Include="Views\Breeds\Create.cshtml" />
+    <Content Include="Views\Breeds\Delete.cshtml" />
+    <Content Include="Views\Breeds\Details.cshtml" />
+    <Content Include="Views\Breeds\Edit.cshtml" />
+    <Content Include="Views\Breeds\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
