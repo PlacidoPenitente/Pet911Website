@@ -1,4 +1,4 @@
-﻿@model Pet911Website.Models.Client
+﻿@model Pet911Website.ViewModels.ClientViewModel
 
 @{
     ViewBag.Title = "Details";
@@ -11,88 +11,94 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.FirstName)
+            @Html.DisplayNameFor(model => model.Client.FirstName)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.FirstName)
+            @Html.DisplayFor(model => model.Client.FirstName)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.MiddleName)
+            @Html.DisplayNameFor(model => model.Client.MiddleName)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.MiddleName)
+            @Html.DisplayFor(model => model.Client.MiddleName)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.LastName)
+            @Html.DisplayNameFor(model => model.Client.LastName)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.LastName)
+            @Html.DisplayFor(model => model.Client.LastName)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Gender)
+            @Html.DisplayNameFor(model => model.Client.Gender)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Gender)
+            @Html.DisplayFor(model => model.Client.Gender)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Birthdate)
+            @Html.DisplayNameFor(model => model.Client.Birthdate)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Birthdate)
+            @Html.DisplayFor(model => model.Client.Birthdate)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Address)
+            @Html.DisplayNameFor(model => model.Client.Address)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Address)
+            @Html.DisplayFor(model => model.Client.Address)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.ContactNo)
+            @Html.DisplayNameFor(model => model.Client.ContactNo)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.ContactNo)
+            @Html.DisplayFor(model => model.Client.ContactNo)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.EmailAddress)
+            @Html.DisplayNameFor(model => model.Client.EmailAddress)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.EmailAddress)
+            @Html.DisplayFor(model => model.Client.EmailAddress)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.FacebookLink)
+            @Html.DisplayNameFor(model => model.Client.FacebookLink)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.FacebookLink)
+            @Html.DisplayFor(model => model.Client.FacebookLink)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.InstagramLink)
+            @Html.DisplayNameFor(model => model.Client.InstagramLink)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.InstagramLink)
+            @Html.DisplayFor(model => model.Client.InstagramLink)
         </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Edit", "Edit", new { id = @Model.Client.Id }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
+
+<div>
+    @{
+        Html.RenderPartial("~/Views/Pets/Index.cshtml", Model.Pets);
+    }
+</div>

@@ -1,4 +1,5 @@
-﻿@model Pet911Website.Models.Pet
+﻿@using Pet911Website.Models
+@model Pet911Website.ViewModels.PetViewModel
 
 @{
     ViewBag.Title = "Create";
@@ -7,35 +8,73 @@
 <h2>Create</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Pet</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Pet.Name, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.Pet.Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Pet.Name, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Gender, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Pet.Gender, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EnumDropDownListFor(model => model.Gender, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
+                @Html.EnumDropDownListFor(model => model.Pet.Gender, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Pet.Gender, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Birthdate, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Pet.Breed, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Birthdate, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Birthdate, "", new { @class = "text-danger" })
+                @{
+                    var items = new List<SelectListItem>();
+                    foreach (var breed in Model.Breeds)
+                    {
+                        items.Add(new SelectListItem
+                        {
+                            Text = breed.Name + @" (" + breed.AnimalKind.Name + @")",
+                            Value = breed.Id.ToString()
+                        });
+                    }
+                }
+                @Html.DropDownListFor(model => model.Pet.Breed.Id, items, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Pet.Breed, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Pet.Owner, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @{
+                    var owners = new List<SelectListItem>();
+                    foreach (var client in Model.Clients)
+                    {
+                        owners.Add(new SelectListItem
+                        {
+                            Text = client.LastName + @", " + client.FirstName,
+                            Value = client.Id.ToString()
+                        });
+                    }
+                }
+                @Html.DropDownListFor(model => model.Pet.Owner.Id, owners, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Pet.Owner, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Pet.Birthdate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Pet.Birthdate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Pet.Birthdate, "", new { @class = "text-danger" })
             </div>
         </div>
 

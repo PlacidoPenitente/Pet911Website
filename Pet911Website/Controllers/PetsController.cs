@@ -3,6 +3,7 @@ using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 using Pet911Website.Models;
+using Pet911Website.ViewModels;
 
 namespace Pet911Website.Controllers
 {
@@ -13,7 +14,7 @@ namespace Pet911Website.Controllers
         // GET: Pets
         public ActionResult Index()
         {
-            return View(db.Pets.ToList());
+            return View(db.Pets.Include(x => x.Breed).Include(x => x.Breed.AnimalKind).Include(x => x.Owner).ToList());
         }
 
         // GET: Pets/Details/5c
@@ -34,7 +35,11 @@ namespace Pet911Website.Controllers
         // GET: Pets/Create
         public ActionResult Create()
         {
-            return View();
+            return View(new PetViewModel
+            {
+                Breeds = db.Breeds.Include(x => x.AnimalKind).ToList(),
+                Clients = db.Clients.ToList()
+            });
         }
 
         // POST: Pets/Create
@@ -42,8 +47,10 @@ namespace Pet911Website.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,Gender,Birthdate")] Pet pet)
+        public ActionResult Create([Bind(Include = "Id,Name,Gender,Birthdate,Breed,Owner")] Pet pet)
         {
+            pet.Owner = db.Clients.SingleOrDefault(x => x.Id == pet.Owner.Id);
+            pet.Breed = db.Breeds.Include(x => x.AnimalKind).SingleOrDefault(x => x.Id == pet.Breed.Id);
             if (ModelState.IsValid)
             {
                 db.Pets.Add(pet);
@@ -51,7 +58,11 @@ namespace Pet911Website.Controllers
                 return RedirectToAction("Index");
             }
 
-            return View(pet);
+            return View(new PetViewModel
+            {
+                Pet = pet,
+                Breeds = db.Breeds.ToList()
+            });
         }
 
         // GET: Pets/Edit/5

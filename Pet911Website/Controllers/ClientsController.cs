@@ -3,6 +3,7 @@ using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 using Pet911Website.Models;
+using Pet911Website.ViewModels;
 
 namespace Pet911Website.Controllers
 {
@@ -28,7 +29,11 @@ namespace Pet911Website.Controllers
             {
                 return HttpNotFound();
             }
-            return View(client);
+            return View(new ClientViewModel
+            {
+                Client = client,
+                Pets = db.Pets.Where(x => x.Owner.Id == client.Id).Include(x => x.Breed).Include(x => x.Breed.AnimalKind).ToList()
+            });
         }
 
         // GET: Clients/Create
