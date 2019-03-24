@@ -137,6 +137,7 @@
     <Compile Include="Controllers\ClientsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PetsController.cs" />
+    <Compile Include="Controllers\ServicesController.cs" />
     <Compile Include="Controllers\StaffsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -156,6 +157,10 @@
     <Compile Include="Migrations\201903230409010_Pets.cs" />
     <Compile Include="Migrations\201903230409010_Pets.Designer.cs">
       <DependentUpon>201903230409010_Pets.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903240720032_Services.cs" />
+    <Compile Include="Migrations\201903240720032_Services.Designer.cs">
+      <DependentUpon>201903240720032_Services.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AnimalKind.cs" />
@@ -235,6 +240,11 @@
     <Content Include="Views\Breeds\Details.cshtml" />
     <Content Include="Views\Breeds\Edit.cshtml" />
     <Content Include="Views\Breeds\Index.cshtml" />
+    <Content Include="Views\Services\Create.cshtml" />
+    <Content Include="Views\Services\Delete.cshtml" />
+    <Content Include="Views\Services\Details.cshtml" />
+    <Content Include="Views\Services\Edit.cshtml" />
+    <Content Include="Views\Services\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -264,6 +274,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903230409010_Pets.resx">
       <DependentUpon>201903230409010_Pets.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903240720032_Services.resx">
+      <DependentUpon>201903240720032_Services.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
