@@ -28,4 +28,6 @@ public class Pet911WebsiteContext : DbContext
     public System.Data.Entity.DbSet<Pet911Website.Models.Appointment> Appointments { get; set; }
 
     public System.Data.Entity.DbSet<Pet911Website.Models.Transaction> Transactions { get; set; }
+
+    public System.Data.Entity.DbSet<Pet911Website.Models.Item> Items { get; set; }
 }

@@ -6,107 +6,107 @@ using Pet911Website.Models;
 
 namespace Pet911Website.Controllers
 {
-    public class TransactionsController : Controller
+    public class ItemsController : Controller
     {
         private Pet911WebsiteContext db = new Pet911WebsiteContext();
 
-        // GET: Transactions
+        // GET: Items
         public ActionResult Index()
         {
-            return View(db.Transactions.ToList());
+            return View(db.Items.ToList());
         }
 
-        // GET: Transactions/Details/5
+        // GET: Items/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Transaction transaction = db.Transactions.Find(id);
-            if (transaction == null)
+            Item item = db.Items.Find(id);
+            if (item == null)
             {
                 return HttpNotFound();
             }
-            return View(transaction);
+            return View(item);
         }
 
-        // GET: Transactions/Create
+        // GET: Items/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Transactions/Create
+        // POST: Items/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Remarks,AmountCharged,AmountPaid")] Transaction transaction)
+        public ActionResult Create([Bind(Include = "Id,Name,Description")] Item item)
         {
             if (ModelState.IsValid)
             {
-                db.Transactions.Add(transaction);
+                db.Items.Add(item);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(transaction);
+            return View(item);
         }
 
-        // GET: Transactions/Edit/5
+        // GET: Items/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Transaction transaction = db.Transactions.Find(id);
-            if (transaction == null)
+            Item item = db.Items.Find(id);
+            if (item == null)
             {
                 return HttpNotFound();
             }
-            return View(transaction);
+            return View(item);
         }
 
-        // POST: Transactions/Edit/5
+        // POST: Items/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Remarks,AmountCharged,AmountPaid")] Transaction transaction)
+        public ActionResult Edit([Bind(Include = "Id,Name,Description")] Item item)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(transaction).State = EntityState.Modified;
+                db.Entry(item).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(transaction);
+            return View(item);
         }
 
-        // GET: Transactions/Delete/5
+        // GET: Items/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Transaction transaction = db.Transactions.Find(id);
-            if (transaction == null)
+            Item item = db.Items.Find(id);
+            if (item == null)
             {
                 return HttpNotFound();
             }
-            return View(transaction);
+            return View(item);
         }
 
-        // POST: Transactions/Delete/5
+        // POST: Items/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Transaction transaction = db.Transactions.Find(id);
-            db.Transactions.Remove(transaction);
+            Item item = db.Items.Find(id);
+            db.Items.Remove(item);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
