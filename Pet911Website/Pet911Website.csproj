@@ -133,6 +133,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AnimalKindsController.cs" />
+    <Compile Include="Controllers\AppointmentsController.cs" />
     <Compile Include="Controllers\BreedsController.cs" />
     <Compile Include="Controllers\ClientsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -161,6 +162,10 @@
     <Compile Include="Migrations\201903240720032_Services.cs" />
     <Compile Include="Migrations\201903240720032_Services.Designer.cs">
       <DependentUpon>201903240720032_Services.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903240724159_Appointment.cs" />
+    <Compile Include="Migrations\201903240724159_Appointment.Designer.cs">
+      <DependentUpon>201903240724159_Appointment.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AnimalKind.cs" />
@@ -245,6 +250,11 @@
     <Content Include="Views\Services\Details.cshtml" />
     <Content Include="Views\Services\Edit.cshtml" />
     <Content Include="Views\Services\Index.cshtml" />
+    <Content Include="Views\Appointments\Create.cshtml" />
+    <Content Include="Views\Appointments\Delete.cshtml" />
+    <Content Include="Views\Appointments\Details.cshtml" />
+    <Content Include="Views\Appointments\Edit.cshtml" />
+    <Content Include="Views\Appointments\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -277,6 +287,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903240720032_Services.resx">
       <DependentUpon>201903240720032_Services.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903240724159_Appointment.resx">
+      <DependentUpon>201903240724159_Appointment.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
