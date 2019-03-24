@@ -25,10 +25,9 @@
         <dd>
             @Html.DisplayFor(model => model.Description)
         </dd>
-
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Edit", "Edit", "Breeds", new { id = Model.Id }, null) |
+    @Html.ActionLink("Back to List", "Details", "AnimalKinds", new { id = Model.AnimalKind.Id }, null)
 </p>

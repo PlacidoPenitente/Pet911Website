@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Pet911Website.Models;
+using Pet911Website.ViewModels;
 
 namespace Pet911Website.Controllers
 {
@@ -32,7 +33,11 @@ namespace Pet911Website.Controllers
             {
                 return HttpNotFound();
             }
-            return View(animalKind);
+            return View(new AnimalKindViewModel
+            {
+                AnimalKind = animalKind,
+                Breeds = db.Breeds.Where(breed => breed.AnimalKind.Id == id).ToList()
+            });
         }
 
         // GET: AnimalKinds/Create

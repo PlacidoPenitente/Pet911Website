@@ -1,8 +1,10 @@
-﻿@model Pet911Website.Models.Breed
+﻿@using System.Web.UI.HtmlControls
+@model Pet911Website.Models.Breed
 
 @{
     ViewBag.Title = "Create";
 }
+
 
 <h2>Create</h2>
 
@@ -10,11 +12,11 @@
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
-    
     <div class="form-horizontal">
-        <h4>Breed</h4>
+        <h4>@Model.AnimalKind.Name Breed</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.AnimalKind.Id)
         <div class="form-group">
             @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -40,7 +42,7 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "Details", "AnimalKinds", new { id = Model.AnimalKind.Id }, null)
 </div>
 
 @section Scripts {
