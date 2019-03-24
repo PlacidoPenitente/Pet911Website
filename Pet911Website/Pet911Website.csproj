@@ -159,12 +159,14 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AnimalKind.cs" />
+    <Compile Include="Models\Appointment.cs" />
     <Compile Include="Models\Breed.cs" />
     <Compile Include="Models\Client.cs" />
     <Compile Include="Models\Gender.cs" />
     <Compile Include="Models\Pet.cs" />
     <Compile Include="Models\PetGender.cs" />
     <Compile Include="Models\Position.cs" />
+    <Compile Include="Models\Service.cs" />
     <Compile Include="Models\Staff.cs" />
     <Compile Include="Pet911WebsiteContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
